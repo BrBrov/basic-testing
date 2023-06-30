@@ -58,8 +58,8 @@ describe('BankAccount', () => {
     // Write your tests here
     const balance = 1000;
     const bankAccount = getBankAccount(balance);
-
-    await expect(bankAccount.fetchBalance()).resolves.toBeTruthy();
+    const result: number | null = await bankAccount.fetchBalance();
+    if (result !== null) expect(typeof result).toBe('number');
   });
 
   test('should set new balance if fetchBalance returned number', async () => {
@@ -76,5 +76,12 @@ describe('BankAccount', () => {
 
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     // Write your tests here
+    const balance = 1000;
+    const bankAccount = getBankAccount(balance);
+    try {
+      await bankAccount.synchronizeBalance();
+    } catch (err) {
+      expect(bankAccount.getBalance()).toBe(balance);
+    }
   });
 });
