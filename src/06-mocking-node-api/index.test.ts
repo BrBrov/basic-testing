@@ -51,10 +51,10 @@ describe('doStuffByInterval', () => {
   test('should call callback multiple times after multiple intervals', () => {
     // Write your test here
     const mockFn = jest.fn();
-    spyOn(global, 'setInterval');
+    jest.spyOn(global, 'setInterval');
     doStuffByInterval(mockFn, 1000);
 
-    jest.runAllTimers();
+    jest.runOnlyPendingTimers();
     expect(setInterval).toBeCalled();
   });
 });
@@ -62,7 +62,7 @@ describe('doStuffByInterval', () => {
 describe('readFileAsynchronously', () => {
   test('should call join with pathToFile', async () => {
     // Write your test here
-    const mockPath = spyOn(path, 'join');
+    const mockPath = jest.spyOn(path, 'join');
 
     await readFileAsynchronously('test.ext');
     return expect(mockPath).toBeCalled();
