@@ -79,7 +79,9 @@ describe('readFileAsynchronously', () => {
     // Write your test here
 
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
-    jest.spyOn(fs.promises, 'readFile').mockResolvedValue(Promise.resolve(Buffer.from('mock')));
+    jest
+      .spyOn(fs.promises, 'readFile')
+      .mockResolvedValue(Promise.resolve(Buffer.from('mock')));
     const result = await readFileAsynchronously('test.ext');
     expect(result).toBe('mock');
   });

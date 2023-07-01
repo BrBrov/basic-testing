@@ -4,7 +4,7 @@ import { getBankAccount } from '.';
 describe('BankAccount', () => {
   test('should create account with initial balance', () => {
     // Write your test here
-    const initBalance: number = 1234567890;
+    const initBalance = 1234567890;
     expect(getBankAccount(initBalance)).toBeTruthy();
   });
 
@@ -13,7 +13,9 @@ describe('BankAccount', () => {
     const balance = 1000;
     const bankAccount = getBankAccount(balance);
 
-    expect(() => bankAccount.withdraw(1001)).toThrow(`Insufficient funds: cannot withdraw more than ${balance}`);
+    expect(() => bankAccount.withdraw(1001)).toThrow(
+      `Insufficient funds: cannot withdraw more than ${balance}`,
+    );
   });
 
   test('should throw error when transferring more than balance', () => {
@@ -25,14 +27,16 @@ describe('BankAccount', () => {
     const balance = 1000;
     const bankAccount = getBankAccount(balance);
 
-    expect(() => bankAccount.transfer(1001, bankAccount)).toThrow('Transfer failed');
+    expect(() => bankAccount.transfer(1001, bankAccount)).toThrow(
+      'Transfer failed',
+    );
   });
 
   test('should deposit money', () => {
     // Write your test here
     const bankAccount = getBankAccount(0);
     bankAccount.deposit(1000);
-    
+
     expect(bankAccount.getBalance()).toBe(1000);
   });
 

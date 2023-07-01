@@ -7,8 +7,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 1,
       b: 2,
-      action: Action.Add
-    }
+      action: Action.Add,
+    };
 
     expect(simpleCalculator(data)).toBe(3);
   });
@@ -18,8 +18,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 4,
       b: 2,
-      action: Action.Subtract
-    }
+      action: Action.Subtract,
+    };
 
     expect(simpleCalculator(data)).toBe(2);
   });
@@ -29,8 +29,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 2,
       b: 2,
-      action: Action.Multiply
-    }
+      action: Action.Multiply,
+    };
 
     expect(simpleCalculator(data)).toBe(4);
   });
@@ -40,8 +40,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 6,
       b: 2,
-      action: Action.Divide
-    }
+      action: Action.Divide,
+    };
 
     expect(simpleCalculator(data)).toBe(3);
   });
@@ -51,8 +51,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 2,
       b: 2,
-      action: Action.Add
-    }
+      action: Action.Add,
+    };
 
     expect(simpleCalculator(data)).toBe(4);
   });
@@ -62,8 +62,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 1,
       b: 2,
-      action: 'non action'
-    }
+      action: 'non action',
+    };
 
     expect(simpleCalculator(data)).toBeNull();
   });
@@ -73,8 +73,8 @@ describe('simpleCalculator tests', () => {
     const data = {
       a: 'one',
       b: 'null',
-      action: 'delete'
-    }
+      action: 'delete',
+    };
 
     expect(simpleCalculator(data)).toBeNull();
   });

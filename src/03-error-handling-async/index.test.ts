@@ -1,10 +1,16 @@
 // Uncomment the code below and write your tests
-import { throwError, throwCustomError, resolveValue, MyAwesomeError, rejectCustomError } from './index';
+import {
+  throwError,
+  throwCustomError,
+  resolveValue,
+  MyAwesomeError,
+  rejectCustomError,
+} from './index';
 
 describe('resolveValue', () => {
   test('should resolve provided value', async () => {
     // Write your test here
-    const value: string = 'test record';
+    const value = 'test record';
     const result: unknown = await resolveValue(value);
     expect(result).toBe('test record');
   });
@@ -13,15 +19,14 @@ describe('resolveValue', () => {
 describe('throwError', () => {
   test('should throw error with provided message', () => {
     // Write your test here
-    const value: string = 'test for Error';
+    const value = 'test for Error';
 
     try {
-      throwError(value)
+      throwError(value);
     } catch (e) {
       const msg: string = (e as Error).message;
       expect(msg).toEqual('test for Error');
     }
-    
   });
 
   test('should throw error with default message if message is not provided', () => {
@@ -31,7 +36,7 @@ describe('throwError', () => {
     } catch (err) {
       const msg: string = (<Error>err).message;
       expect(msg).toEqual('Oops!');
-    }    
+    }
   });
 });
 

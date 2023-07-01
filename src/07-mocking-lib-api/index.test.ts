@@ -3,7 +3,6 @@ import axios from 'axios';
 import { throttledGetDataFromApi } from './index';
 
 describe('throttledGetDataFromApi', () => {
-
   beforeAll(() => jest.useFakeTimers());
   afterAll(() => jest.useRealTimers());
 
@@ -14,17 +13,21 @@ describe('throttledGetDataFromApi', () => {
 
     await throttledGetDataFromApi('/test');
 
-    expect(watcher).toBeCalledWith({ baseURL: 'https://jsonplaceholder.typicode.com' });
+    expect(watcher).toBeCalledWith({
+      baseURL: 'https://jsonplaceholder.typicode.com',
+    });
   });
 
   test('should perform request to correct provided url', async () => {
     // Write your test here
-    const watcher = jest.spyOn(axios.Axios.prototype, 'get').mockResolvedValue({ data: true });
+    const watcher = jest
+      .spyOn(axios.Axios.prototype, 'get')
+      .mockResolvedValue({ data: true });
 
     throttledGetDataFromApi('/test');
 
     jest.runAllTimers();
-    
+
     expect(watcher).toBeCalledWith('/test');
   });
 

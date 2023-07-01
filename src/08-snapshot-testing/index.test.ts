@@ -11,10 +11,10 @@ describe('generateLinkedList', () => {
       value: element,
       next: {
         value: null,
-        next: null
-      }
-    }
-    
+        next: null,
+      },
+    };
+
     const result = generateLinkedList([element]);
     expect(result).toStrictEqual(expected);
   });
@@ -28,10 +28,10 @@ describe('generateLinkedList', () => {
       value: element,
       next: {
         value: null,
-        next: null
-      }
-    }
-    
+        next: null,
+      },
+    };
+
     const result = generateLinkedList([element]);
     expect(result).toMatchSnapshot(expected);
   });
