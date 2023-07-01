@@ -3,22 +3,6 @@ import axios from 'axios';
 import { throttledGetDataFromApi } from './index';
 
 describe('throttledGetDataFromApi', () => {
-  // jest.mock('axios', () => {
-  //   const originalModule = jest.requireActual<typeof import('axios')>('axios');
-
-  //   return {
-  //     __esModule: true,
-  //     ...originalModule,
-  //     create: (urlInput: string) => {
-  //       return {
-  //         url: urlInput,
-  //         get: jest.fn(async() => 'test')
-  //       }
-  //     }
-  //   }
-  // });
-
-  // jest.mock('axios');
 
   beforeAll(() => jest.useFakeTimers());
   afterAll(() => jest.useRealTimers());
